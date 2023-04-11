@@ -24,6 +24,7 @@ justify-content: spread-around;
 align-items: center;
 
 
+
 list-style: none;
 padding: 0;
 margin: 0;
@@ -33,7 +34,7 @@ export const StatListItem = styled.li
 `display:flex;
 flex-direction: column;
 justify-content: space-evenly;
-width: 80px;
+width: 100px;
 border-top: 1px solid #d9dedf;
 
 

@@ -6,20 +6,37 @@ import {
   StatListItem,
   Label,
   Percentage,
-} from './StatisticsStyles';
+} from '../Statistics/StatisticsStyles';
 
 export const Statistics = ({ title, stats }) => {
+  const labels = {};
+  stats.forEach(({ label, percentage }) => {
+    if (label in labels) {
+      labels[label] += percentage;
+    } else {
+      labels[label] = percentage;
+    }
+  });
+  const newStats = Object.entries(labels).map(([label, percentage]) => ({    
+    label,
+    percentage,
+  }));
+
   return (
     <StatSection>
       {title && <Title>{title}</Title>}
       <StatList>
-        {stats.map(({id, label, percentage})=> {
-            return (
-            <StatListItem key={id} style={{backgroundColor: getRandomColor()}}>
-          <Label>{label}</Label>
-          <Percentage>{percentage}%</Percentage>
-        </StatListItem>);
-            })}
+        {newStats.map(({ id, label, percentage }) => {
+          return (
+            <StatListItem
+              key={id}
+              style={{ backgroundColor: getRandomColor() }}
+            >
+              <Label>{label}</Label>
+              <Percentage>{percentage}%</Percentage>
+            </StatListItem>
+          );
+        })}
       </StatList>
     </StatSection>
   );
