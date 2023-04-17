@@ -7,7 +7,7 @@ import { Profile } from 'components/Profile/Profile';
 import { Statistics } from 'components/Statistics//Statistics';
 import { FriendList } from 'components/FriendList/FriendList';
 import { TransactionHistory } from 'components/Transactions/TransactionHistory';
-// import { FriendListItem } from 'components/FriendListItem/FriendListItem';
+
 
 export const App = () => {
   return (
